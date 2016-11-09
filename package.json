@@ -106,6 +106,8 @@
     "rollup"
   ],
   "nyc": {
+    "all": true,
+    "cache": true,
     "include": [
       "src/*.ts",
       "src/**/*.ts"
