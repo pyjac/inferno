@@ -113,7 +113,8 @@
     ],
     "exclude": [
       "typings",
-      "src/**/*__tests__*/**"
+      "src/**/*__tests__*/**",
+      "src/inferno.d.ts"
     ],
     "extension": [
       ".ts"
