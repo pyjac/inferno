@@ -106,6 +106,7 @@
     "rollup"
   ],
   "nyc": {
+    "all": true,
     "include": [
       "src/*.ts",
       "src/**/*.ts"
@@ -147,9 +148,9 @@
     "packages:reinstall": "npm run packages:purge && npm install",
     "prepublish": "npm run build",
     "prepush": "npm run eslint:source && npm run lint:source && npm test",
-    "server:cov": "cross-env nyc mocha --opts config/mocha.opts",
+    "server:cov": "cross-env nyc --require ./config/compiler.js --require babel-core/register mocha --opts config/mocha.opts",
     "server:cov:publish": "npm run server:cov && coveralls < coverage/lcov.info && rimraf coverage",
-    "test": "npm run test:browser && npm run test:server",
+    "test": "npm run test:browser && npm run server:cov",
     "test:browser": "karma start config/karma.conf.js",
     "test:server": "cross-env mocha --opts config/mocha.opts"
   },
